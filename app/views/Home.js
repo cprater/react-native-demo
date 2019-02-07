@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import CardList from '../components/CardList';
 
-export default class Home extends Component<Props> {
+export default class Home extends Component {
   render() {
     return (
       <View>

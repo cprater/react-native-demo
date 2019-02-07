@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, FlatList} from 'react-native';
 import Card from './Card';
 
 export default class CardList extends Component {
   constructor(props) {
     super(props);
+
     const cards = Array.from({length: 20}, () => DATA.CARDS[0]);
 
     this.state = {
@@ -12,11 +13,21 @@ export default class CardList extends Component {
     };
   }
 
+  _keyExtractor() {
+    return String(Math.ceil(Math.random() * 10000));
+  }
+
+  _renderCard({ item }) {
+    return <Card { ...item } />;
+  }
+
   render() {
     return (
-      <ScrollView>
-        {this.state.cards.map((card, i) => <Card key={i} {...card} />)}
-      </ScrollView>
+      <FlatList
+        data={this.state.cards}
+        renderItem={this._renderCard}
+        keyExtractor={this._keyExtractor}
+      />
     );
   }
 }
