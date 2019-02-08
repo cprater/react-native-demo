@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import CardList from '../components/CardList';
 
 export default class Home extends Component {
   render() {
@@ -9,10 +8,6 @@ export default class Home extends Component {
         <Text style={styles.welcome}>Welcome to React Native WAMMO</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{this.props.instructions}</Text>
-
-        <View style={styles.cardList}>
-          <CardList />
-        </View>
       </View>
     );
   }
@@ -29,9 +24,4 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  cardList: {
-    marginTop: 32,
-    paddingLeft: 4,
-    paddingRight: 4,
-  }
 });
